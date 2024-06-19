@@ -1,12 +1,16 @@
 package nl.novi.backend_hw11_techiteasy.controllers;
-import nl.novi.backend_hw11_techiteasy.exceptions.TelevisionNameTooLongException;
+import jakarta.validation.Valid;
+import nl.novi.backend_hw11_techiteasy.dtos.input.TelevisionInputDto;
+import nl.novi.backend_hw11_techiteasy.dtos.output.TelevisionOutputDto;
 import nl.novi.backend_hw11_techiteasy.exceptions.RecordNotFoundException;
+import nl.novi.backend_hw11_techiteasy.helpers.BindingResultHelper;
 import nl.novi.backend_hw11_techiteasy.models.Television;
 import nl.novi.backend_hw11_techiteasy.repositories.TelevisionRepository;
+import nl.novi.backend_hw11_techiteasy.services.TelevisionService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,14 +18,24 @@ import java.util.Optional;
 @RequestMapping("/televisions")
 public class TelevisionController {
 
-    // Vorige week maakten we nog gebruik van een List<String>, nu gebruiken we de repository met een echte database.
-    // We injecteren de repository hier via de constructor, maar je mag ook @Autowired gebruiken.
-    private final TelevisionRepository televisionRepository;
+    private final TelevisionService televisionService;
 
     // Constructor injection
-    public TelevisionController(TelevisionRepository televisionRepository) {
-        this.televisionRepository = televisionRepository;
+    public TelevisionController(TelevisionService televisionService) {
+        this.televisionService = televisionService;
     }
+
+    @PostMapping
+    public ResponseEntity<TelevisionOutputDto> addTelevision
+            (@Valid @RequestBody TelevisionInputDto televisionInputDto, BindingResult br) {
+
+        // Sla de nieuwe tv in de database op met de save-methode van de repository
+        Television returnTelevision = televisionRepository.save(television);
+
+        // Return de gemaakte television en een 201 status
+        return ResponseEntity.created(null).body(returnTelevision);
+    }
+
 
     // We hebben hier de RequestParam "brand" toegevoegd om te laten zien hoe dat werkt.
     // Als de gebruiker een brand invult, dan zoeken we op brand, anders returnen we alle televisions.
