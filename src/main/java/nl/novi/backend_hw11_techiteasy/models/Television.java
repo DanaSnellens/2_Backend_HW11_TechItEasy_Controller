@@ -12,6 +12,8 @@ public class Television {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne
+    private RemoteController remoteController;
     @OneToMany(mappedBy = "television ")
     private List<CIModule> ciModules;
     private String type;
@@ -190,5 +192,21 @@ public class Television {
 
     public void setSold(Integer sold) {
         this.sold = sold;
+    }
+
+    public RemoteController getRemoteController() {
+        return remoteController;
+    }
+
+    public void setRemoteController(RemoteController remoteController) {
+        this.remoteController = remoteController;
+    }
+
+    public List<CIModule> getCiModules() {
+        return ciModules;
+    }
+
+    public void setCiModules(List<CIModule> ciModules) {
+        this.ciModules = ciModules;
     }
 }
