@@ -4,17 +4,13 @@ package nl.novi.backend_hw11_techiteasy.controllers;
 import jakarta.validation.Valid;
 import nl.novi.backend_hw11_techiteasy.dtos.input.TelevisionInputDto;
 import nl.novi.backend_hw11_techiteasy.dtos.output.TelevisionOutputDto;
-import nl.novi.backend_hw11_techiteasy.exceptions.RecordNotFoundException;
-import nl.novi.backend_hw11_techiteasy.models.Television;
 import nl.novi.backend_hw11_techiteasy.services.TelevisionService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/televisions")
