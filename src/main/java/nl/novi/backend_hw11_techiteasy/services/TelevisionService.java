@@ -28,7 +28,6 @@ public class TelevisionService {
         return TelevisionMapper.fromModelToOutputDto(t);
     }
 
-
     public List<TelevisionOutputDto> getAllTelevisions() {
         //Alle tvs ophalen uit database
         List<Television> allTvs = televisionRepository.findAll();
@@ -62,7 +61,7 @@ public class TelevisionService {
         if (t.isPresent()) {
             return TelevisionMapper.fromModelToOutputDto(t.get());
         } else {
-            throw new RecordNotFoundException("Geen televisie gevonden met id: " + id);
+            throw new RecordNotFoundException("No television found with id: " + id);
         }
     }
 }

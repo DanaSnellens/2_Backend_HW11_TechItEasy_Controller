@@ -46,7 +46,7 @@ public class TelevisionController {
         return ResponseEntity.created(uri).body(tvOutput);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteTvById(@PathVariable Long id) {
         televisionService.deleteTvById(id);
 
