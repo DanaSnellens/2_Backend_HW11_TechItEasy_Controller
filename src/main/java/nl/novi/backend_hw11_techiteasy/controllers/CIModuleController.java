@@ -23,7 +23,7 @@ public class CIModuleController {
 
     @GetMapping
     public ResponseEntity<List<CIModuleOutputDto>> getAllCIModules() {
-        return ResponseEntity.ok().body(ciModuleService.getAllTelevisions());
+        return ResponseEntity.ok().body(ciModuleService.getAllCIModules());
     }
 
     @GetMapping("/{id}")

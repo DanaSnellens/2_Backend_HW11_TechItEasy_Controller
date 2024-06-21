@@ -60,5 +60,4 @@ public class CIModuleService {
             throw new RecordNotFoundException("No CI-module found with id: " + id);
         }
     }
-
 }
