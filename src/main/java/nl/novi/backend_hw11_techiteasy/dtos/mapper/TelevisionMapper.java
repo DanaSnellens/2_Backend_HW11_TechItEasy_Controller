@@ -29,6 +29,7 @@ public class TelevisionMapper {
 
     public static TelevisionOutputDto fromModelToOutputDto(Television television) {
         TelevisionOutputDto televisionOutputDto = new TelevisionOutputDto();
+        televisionOutputDto.setId(television.getId());
         televisionOutputDto.setType(television.getType());
         televisionOutputDto.setBrand(television.getBrand());
         televisionOutputDto.setName(television.getName());

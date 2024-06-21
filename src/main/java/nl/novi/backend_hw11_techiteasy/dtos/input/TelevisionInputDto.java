@@ -6,8 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Positive;
 
 public class TelevisionInputDto {
-
-    public Long id;
     public String type;
     public String brand;
     public String name;

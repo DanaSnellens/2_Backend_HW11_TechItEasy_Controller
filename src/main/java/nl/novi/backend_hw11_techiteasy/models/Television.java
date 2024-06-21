@@ -2,6 +2,8 @@ package nl.novi.backend_hw11_techiteasy.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table (name = "Televisions")
 public class Television {
@@ -9,6 +11,9 @@ public class Television {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(mappedBy = "television ")
+    private List<CIModule> ciModules;
     private String type;
     private String brand;
     private String name;
