@@ -64,4 +64,6 @@ public class TelevisionService {
             throw new RecordNotFoundException("No television found with id: " + id);
         }
     }
+
+    //functie assignRemoteControllerToTelevision toevoegen (stap 8)
 }

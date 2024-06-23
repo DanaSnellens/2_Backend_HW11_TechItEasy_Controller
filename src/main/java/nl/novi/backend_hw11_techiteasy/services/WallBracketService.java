@@ -44,7 +44,7 @@ public class WallBracketService {
         }
     }
 
-    public void deleteTvById(Long id) {
+    public void deleteWallBracketById(Long id) {
         Optional <WallBracket> wb = wallBracketRepository.findById(id);
         if (wb.isPresent()) {
             wallBracketRepository.deleteById(id);

@@ -29,7 +29,7 @@ public class WallBracketController {
     // Return 1 televisie met een specifiek id
     @GetMapping("/{id}")
     public ResponseEntity<WallBracketOutputDto> getWallBracketById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok().body(wallBracketService.getWallBracket);
+        return ResponseEntity.ok().body(wallBracketService.getWallBracketById(id));
     }
 
     @PostMapping

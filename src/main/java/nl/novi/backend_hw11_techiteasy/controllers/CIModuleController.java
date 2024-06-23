@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ci-modules")
+@RequestMapping("/cimodules")
 public class CIModuleController {
     private final CIModuleService ciModuleService;
 
@@ -39,11 +39,20 @@ public class CIModuleController {
         return ResponseEntity.created(uri).body(ciModuleOutput);
     }
 
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteCIModuleById(@PathVariable Long id) {
         ciModuleService.deleteCiById(id);
 
         return ResponseEntity.noContent().build();
+    }
+
+
+    @PutMapping("/{ciModuleId}/televisions/{tvId}")
+    public ResponseEntity<?> linkCiModuleAndTv(@PathVariable long ciModuleId, @PathVariable long tvId) {
+        ciModuleService.linkCiModuleAndTv(ciModuleId, tvId);
+        // builder pattern (design patterns)
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")

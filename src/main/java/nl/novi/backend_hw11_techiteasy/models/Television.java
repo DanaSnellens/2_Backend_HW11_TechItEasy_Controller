@@ -14,7 +14,7 @@ public class Television {
 
     @OneToOne
     private RemoteController remoteController;
-    @OneToMany(mappedBy = "television ")
+    @OneToMany(mappedBy = "television")
     private List<CIModule> ciModules;
     private String type;
     private String brand;
